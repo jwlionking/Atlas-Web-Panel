@@ -1,0 +1,62 @@
+{
+  "0": {
+    "ServerName": "Server 1",
+    "SessionName": "[CrimsonFusion.org]",
+    "ServerX": "0",
+    "ServerY": "0",
+    "AltSaveDirectoryName": "0_0",
+    "ServerAdminPassword": "Alienwarem17",
+    "RCONEnabled": "True",
+    "RCONPort": "32340",
+    "MaxPlayers": "200",
+    "ReservedPlayerSlots": "100",
+    "QueryPort": "57560",
+    "Port": "5760",
+    "SeamlessIP": "207.255.60.143"
+  },
+  "1": {
+    "ServerName": "Server 2",
+    "SessionName": "[CrimsonFusion.org]",
+    "ServerX": "1",
+    "ServerY": "0",
+    "AltSaveDirectoryName": "1_0",
+    "ServerAdminPassword": "Alienwarem17",
+    "RCONEnabled": "True",
+    "RCONPort": "32341",
+    "MaxPlayers": "200",
+    "ReservedPlayerSlots": "100",
+    "QueryPort": "57575",
+    "Port": "5775",
+    "SeamlessIP": "207.255.60.143"
+  },
+  "2": {
+    "ServerName": "Server 3",
+    "SessionName": "[CrimsonFusion.org]",
+    "ServerX": "0",
+    "ServerY": "1",
+    "AltSaveDirectoryName": "0_1",
+    "ServerAdminPassword": "Alienwarem17",
+    "RCONEnabled": "True",
+    "RCONPort": "32342",
+    "MaxPlayers": "200",
+    "ReservedPlayerSlots": "100",
+    "QueryPort": "57577",
+    "Port": "5777",
+    "SeamlessIP": "207.255.60.143"
+  },
+  "3": {
+    "ServerName": "Server 4",
+    "SessionName": "[CrimsonFusion.org]",
+    "ServerX": "1",
+    "ServerY": "1",
+    "AltSaveDirectoryName": "1_1",
+    "ServerAdminPassword": "Alienwarem17",
+    "RCONEnabled": "True",
+    "RCONPort": "32343",
+    "MaxPlayers": "200",
+    "ReservedPlayerSlots": "100",
+    "QueryPort": "57589",
+    "Port": "5789",
+    "SeamlessIP": "207.255.60.143"
+  }
+}

@@ -1,0 +1,22 @@
+Steam Console Client (c) Valve Corporation
+-- type 'quit' to exit --
+Loading Steam API...OK.
+
+Connecting anonymously to Steam Public...Logged in OK
+Waiting for user info...OK
+ Update state (0x3) reconfiguring, progress: 0.00 (0 / 0)
+ Update state (0x5) validating, progress: 0.54 (103096012 / 18975050789)
+ Update state (0x5) validating, progress: 1.61 (304778185 / 18975050789)
+ Update state (0x5) validating, progress: 2.15 (407161198 / 18975050789)
+ Update state (0x5) validating, progress: 2.88 (545577559 / 18975050789)
+ Update state (0x5) validating, progress: 5.56 (1054542617 / 18975050789)
+ Update state (0x5) validating, progress: 5.98 (1134841294 / 18975050789)
+ Update state (0x5) validating, progress: 6.14 (1165910357 / 18975050789)
+ Update state (0x5) validating, progress: 6.38 (1211365586 / 18975050789)
+ Update state (0x5) validating, progress: 6.59 (1249829133 / 18975050789)
+ Update state (0x5) validating, progress: 6.66 (1264261611 / 18975050789)
+ Update state (0x5) validating, progress: 6.75 (1281604500 / 18975050789)
+ Update state (0x5) validating, progress: 6.83 (1296822774 / 18975050789)
+ Update state (0x5) validating, progress: 6.89 (1306610583 / 18975050789)
+ Update state (0x5) validating, progress: 6.91 (1311777753 / 18975050789)
+ Update state (0x5) validating, progress: 6.99 (1326578947 / 18975050789)
