@@ -1,7 +1,7 @@
 # Atlas Web Panel
 ![alt text](https://github.com/jwlionking/Atlas-Web-Panel/blob/master/Atlas-Web-Panel.png)
 
-2/4/2019<br>
+<b>2/4/2019</b><br>
 Added basic Redis server functionality<br>
 Redis Server Status<br>
 Start Redis Server<br>
