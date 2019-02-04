@@ -12,7 +12,46 @@ $(document).ready(function() {
 
   // updateControlsInterval variable
   let updateControlsInterval;
-
+  
+   // Redis Server Start button click
+  $(document).on('click', '#start_redis_btn', function(){
+    $.ajax({
+      url: "/includes/redis_start.php",
+      type: "POST",
+      dataType: 'html',
+      data: {
+      },
+      error: function() {
+        alert("Function Failed.");
+      },
+      success: function(data) {
+        alert("Redis Server Started.")
+      }
+    });
+  });
+  
+   // Redis Server Stop button click
+  $(document).on('click', '#stop_redis_btn', function(){
+    $.ajax({
+      url: "/includes/redis_stop.php",
+      type: "POST",
+      dataType: 'html',
+      data: {
+      },
+      error: function() {
+        alert("Function Failed.");
+      },
+      success: function(data) {
+        alert("Redis Server Stopped.")
+      }
+    });
+  });
+  
+  
+  
+  
+  
+  
   // Show Server Inputs
   function serverinputs(){
     //let id = event.target.id;
@@ -57,6 +96,11 @@ $(document).ready(function() {
         $("#cancel_btn").show();
       }
     });
+  });
+  
+  // Cancel button click
+  $(document).on('click', '#cancel_btn', function(){
+    serverinputs();
   });
   
   // Delete Server

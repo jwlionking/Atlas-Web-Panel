@@ -24,6 +24,9 @@
         <a href="http://cfgaming.org:83/ampps" class="w3-bar-item w3-button w3-mobile">AMPPS User</a>
         <a href="http://cfgaming.org:83/ampps-admin" class="w3-bar-item w3-button w3-mobile">AAMPS Admin</a>
         <a href="http://cfgaming.org:83/phpmyadmin" class="w3-bar-item w3-button w3-mobile">PHPMyAdmin</a>
+        <a href="#" id="stop_redis_btn" class="w3-bar-item w3-button w3-mobile">Stop Redis</a>
+        <a href="#" id="start_redis_btn" class="w3-bar-item w3-button w3-mobile">Start Redis</a>
+        <a href="#" id="clear_redis_btn" class="w3-bar-item w3-button w3-mobile">Clear Redis</a>
       </div>
     </div>
     <a href="/modules/login/logout.php" class="w3-bar-item w3-button w3-mobile w3-right" onclick="">Logout</a>

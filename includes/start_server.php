@@ -1,4 +1,8 @@
 <?php
+/*
+Ocean?ServerX=0?ServerY=1?Port=5777?QueryPort=57577?AltSaveDirectoryName=0_1?MaxPlayers=200?ReservedPlayerSlots=100?ServerAdminPassword=Alienwarem17?ServerCrosshair=true?AllowThirdPersonPlayer=true?MapPlayerLocation=true?serverPVE=false?RCONEnabled=true?RCONPort=32342?EnablePvPGamma=true?AllowAnyoneBabyImprintCuddle=true?ShowFloatingDamageText=True?SeamlessIP=207.255.60.143" -game -server -log -NoCrashDialog -NoBattlEye
+*/
+
 	require $_SERVER["DOCUMENT_ROOT"].('/config/sql/config.php');
 	$id = $_POST['id'];
 	//$id = 2;
