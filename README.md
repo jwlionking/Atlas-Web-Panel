@@ -12,4 +12,4 @@ Pre-requisites:<br>
 Apache or IIS Webserver<br>
 MySQL<br>
 Hard coded login: u:user p:user<br>
-![alt text](https://i.imgur.com/YzCnKsl.jpg)
+![alt text](https://github.com/jwlionking/Atlas-Web-Panel/blob/master/Atlas-Web-Panel.png)
