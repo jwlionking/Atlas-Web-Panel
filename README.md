@@ -1,5 +1,9 @@
 # Atlas Web Panel
 
+2/4/2019<br>
+Added basic Redis server functionality<br>
+Start Redis Server<br>
+Stop Redis Server<br>
 2/1/2019<br>
 This is an Alpha release with basic functionality and no automation of setup.<br>
 Currently for Windows but will be developing a linux version.<br>
