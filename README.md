@@ -2,6 +2,7 @@
 
 2/4/2019<br>
 Added basic Redis server functionality<br>
+Redis Server Status<br>
 Start Redis Server<br>
 Stop Redis Server<br>
 2/1/2019<br>
