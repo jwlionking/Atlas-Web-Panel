@@ -6,7 +6,9 @@
   $rowcount = $result->num_rows;
   $conn->close();
   
+  // Batch file to check redis status
   exec('c:\WINDOWS\system32\cmd.exe /c START checkredis.bat');
+
   // Header and All Server Controls
   $header = "";
   $header .= "  <div id='redis_status' class='w3-container w3-card w3-dark-grey'>";
@@ -18,9 +20,11 @@
   $header .= "  <button class='startall_server_btn w3-button w3-round w3-border w3-yellow' id='all'>START ALL</button>";
   $header .= "  <button class='stop_server_btn w3-button w3-round w3-border w3-red' id='all'>STOP ALL</button>";
   $header .= "  <button class='update_svr_btn w3-button w3-round w3-border w3-blue' id='all'>UPDATE</button>";
+  $header .= "  <button class='admin_id_btn w3-button w3-round w3-border w3-black' id='demo01'>EDIT ADMIN IDs</button>";
   $header .= "  <br>";
   
   $header .= "</div>";
+
   echo $header;
 
   $x = 1;
@@ -85,6 +89,16 @@ for ($x = 1; $x <=$rowcount; $x++) {
   $output .= "    Map: ${"Map" . $x}<br>";
   $output .= "    Players Online: ${"Players" . $x}<br>";
   $output .= "    Max Players: ${"MaxPlayers" . $x}";
+  $output .= "  </div>";
+  //$output .= "  <hr>";
+  $output .= "  <div class='w3-container w3-padding'>";
+  $output .= "    <center>";
+  $output .= "    <h4>EDIT CONFIGS</h4></center>";
+  //$output .= "    <hr>";
+  $output .= "    <button class='w3-button w3-round w3-border w3-black'>Game.ini</button>";
+  $output .= "    <button class='w3-button w3-round w3-border w3-black'>GameUserSettings.ini</button>";
+  $output .= "    <button class='w3-button w3-round w3-border w3-black'>Engine.ini</button>";
+  $output .= "    </center>";
   $output .= "  </div>";
   $output .= "</div>";
   $output .= "";

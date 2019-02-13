@@ -4,15 +4,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="/css/atlaspanel.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/atlaspanel.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <?php 
   require $_SERVER["DOCUMENT_ROOT"] . '/includes/includes.php';
   ?>
 
 <body>
   <div class="w3-container w3-teal">
-    <h1>CFGaming.org Atlas Panel</h1>
+    <h1>CrimsonFusion.org Atlas Panel</h1>
   </div>
 
   <div class="w3-bar w3-black">
@@ -31,5 +34,6 @@
     </div>
     <a href="/modules/login/logout.php" class="w3-bar-item w3-button w3-mobile w3-right" onclick="">Logout</a>
   </div>
-  </body>
+</body>
+
 </html>

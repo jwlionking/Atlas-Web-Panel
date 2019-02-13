@@ -1,6 +1,7 @@
 <?php
 require $_SERVER["DOCUMENT_ROOT"].('/config/sql/config.php');
-
+$tblname = 'atlas';
+// SHOW tables FROM $dbname
 $rownames = array(
         "id",
         "SessionName",
@@ -18,7 +19,7 @@ $rownames = array(
       );
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM atlas";
+$sql = "SELECT * FROM $tblname";
 $result = $conn->query($sql);
 
 // Count Tableheader names in array

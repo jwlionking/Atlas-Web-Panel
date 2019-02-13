@@ -1,5 +1,7 @@
 $(document).ready(function() {
   
+  
+  
   // Set root directory
   var rooturl  = "http://cfgaming.org:83";
   
@@ -13,7 +15,57 @@ $(document).ready(function() {
   // updateControlsInterval variable
   let updateControlsInterval;
   
-   // Redis Server Start button click
+  // Initialize Animated Modal
+  /*if ( pageURL == (rooturl + "/index.php")) {
+    // Initialize Animated Modal
+    $("#demo01").animatedModal();
+  }*/
+  
+  // Edit Admin IDs
+  $(document).on('click', '.admin_id_btn', function(){
+    
+    $.ajax({
+      url: "/includes/admin_id_edit.php",
+      type: "POST",
+      dataType: 'html',
+      data: {
+        
+      },
+      error: function() {
+        alert("Loading Controls Failed.");
+      },
+      success: function(data) {
+        $('.modal').html(data);
+        $("#ex1").modal({
+					fadeDuration: 200,
+					fadeDelay: 0.50,
+					escapeClose: true,
+					clickClose: false,
+					showClose: true
+				});
+      }
+    });
+    $(document).on('click', '.admin_save_btn', function(){
+      var txt = document.getElementById('admin_id_txt').value;
+      $.ajax({
+      url: "/includes/admin_id_save.php",
+      type: "POST",
+      dataType: 'html',
+      data: {
+        txt: txt
+      },
+      error: function() {
+        alert("Loading Controls Failed.");
+      },
+      success: function(data) {
+        alert(data);
+        $.modal.close();
+      }
+    });
+    });
+  });
+  
+  // Redis Server Start button click
   $(document).on('click', '#start_redis_btn', function(){
     $.ajax({
       url: "/includes/redis_start.php",
@@ -46,11 +98,6 @@ $(document).ready(function() {
       }
     });
   });
-  
-  
-  
-  
-  
   
   // Show Server Inputs
   function serverinputs(){
@@ -167,6 +214,7 @@ $(document).ready(function() {
         alert("Loading Controls Failed.");
       },
       success: function(data) {
+        
         $('#controls').html(data);
       }
     });
