@@ -1,10 +1,8 @@
 $(document).ready(function() {
-  
-  
-  
+
   // Set root directory
-  var rooturl  = "http://cfgaming.org:83";
-  
+  var rooturl = "http://cfgaming.org:83";
+
   //Find current page url so only specific functions run for a page
   var pageURL = $(location).attr("href");
   //alert(pageURL);
@@ -14,22 +12,17 @@ $(document).ready(function() {
 
   // updateControlsInterval variable
   let updateControlsInterval;
-  
-  // Initialize Animated Modal
-  /*if ( pageURL == (rooturl + "/index.php")) {
-    // Initialize Animated Modal
-    $("#demo01").animatedModal();
-  }*/
-  
-  // Edit Admin IDs
-  $(document).on('click', '.admin_id_btn', function(){
-    
+  // Loadini function
+  function loadini(x,y) {
+    var pid = x;
+    var dir = y;
     $.ajax({
-      url: "/includes/admin_id_edit.php",
+      url: "/includes/loadini.php",
       type: "POST",
       dataType: 'html',
       data: {
-        
+        pid:pid,
+        dir:dir
       },
       error: function() {
         alert("Loading Controls Failed.");
@@ -37,22 +30,27 @@ $(document).ready(function() {
       success: function(data) {
         $('.modal').html(data);
         $("#ex1").modal({
-					fadeDuration: 200,
-					fadeDelay: 0.50,
-					escapeClose: true,
-					clickClose: false,
-					showClose: true
-				});
+          fadeDuration: 200,
+          fadeDelay: 0.50,
+          escapeClose: true,
+          clickClose: false,
+          showClose: true
+        });
       }
     });
-    $(document).on('click', '.admin_save_btn', function(){
-      var txt = document.getElementById('admin_id_txt').value;
-      $.ajax({
-      url: "/includes/admin_id_save.php",
+  }
+  function saveini(x,y,z) {
+    var pid = x;
+    var txt = y;
+    var dir = z;
+    $.ajax({
+      url: "/includes/saveini.php",
       type: "POST",
       dataType: 'html',
       data: {
-        txt: txt
+        pid: pid,
+        txt: txt,
+        dir: dir
       },
       error: function() {
         alert("Loading Controls Failed.");
@@ -62,17 +60,63 @@ $(document).ready(function() {
         $.modal.close();
       }
     });
-    });
+  }
+  // Edit Admin IDs
+  $(document).on('click', '.admin_id_btn', function() {
+    loadini('admin');
+   });
+
+  // Admin save button within Admin ID modal
+  $(document).on('click', '.admin_save_btn', function() {
+    let txt = document.getElementById('txt').value;
+    saveini('admin',txt);
+  });
+
+  // Edit Game.ini
+  $(document).on('click', '.gameini_btn', function() {
+    var dir = event.srcElement.id;
+    loadini('gameini',dir);
   });
   
+  // Edit Game.ini
+  $(document).on('click', '.gameus_btn', function() {
+    var dir = event.srcElement.id;
+    loadini('gameuserini',dir);
+  });
+  
+  // Edit Game.ini
+  $(document).on('click', '.engine_btn', function() {
+    var dir = event.srcElement.id;
+    loadini('engineini',dir);
+  });
+  
+  
+  // gameini save button within gameini modal
+  $(document).on('click', '.gini_s_btn', function() {
+    var txt = document.getElementById('txt').value;
+    var dir = event.srcElement.id;
+    saveini('gameini',txt,dir);
+  });
+  // gameusersettingsini save button within gameusersettingsini modal
+  $(document).on('click', '.guser_s_btn', function() {
+    var txt = document.getElementById('txt').value;
+    var dir = event.srcElement.id;
+    saveini('gameuserini',txt,dir);
+  });
+  // engineini save button within engineini modal
+  $(document).on('click', '.engine_s_btn', function() {
+    var txt = document.getElementById('txt').value;
+    var dir = event.srcElement.id;
+    saveini('engineini',txt,dir);
+  });
+
   // Redis Server Start button click
-  $(document).on('click', '#start_redis_btn', function(){
+  $(document).on('click', '#start_redis_btn', function() {
     $.ajax({
       url: "/includes/redis_start.php",
       type: "POST",
       dataType: 'html',
-      data: {
-      },
+      data: {},
       error: function() {
         alert("Function Failed.");
       },
@@ -81,15 +125,14 @@ $(document).ready(function() {
       }
     });
   });
-  
-   // Redis Server Stop button click
-  $(document).on('click', '#stop_redis_btn', function(){
+
+  // Redis Server Stop button click
+  $(document).on('click', '#stop_redis_btn', function() {
     $.ajax({
       url: "/includes/redis_stop.php",
       type: "POST",
       dataType: 'html',
-      data: {
-      },
+      data: {},
       error: function() {
         alert("Function Failed.");
       },
@@ -98,16 +141,16 @@ $(document).ready(function() {
       }
     });
   });
-  
+
   // Show Server Inputs
-  function serverinputs(){
+  function serverinputs() {
     //let id = event.target.id;
-    
+
     $.ajax({
       url: "/includes/serverinputs.php",
       type: "POST",
       dataType: 'html',
-      
+
       error: function() {
         alert("Loading Controls Failed.");
       },
@@ -119,12 +162,12 @@ $(document).ready(function() {
     });
   }
   // Cancel button click
-  $(document).on('click', '#cancel_btn', function(){
+  $(document).on('click', '#cancel_btn', function() {
     serverinputs();
   });
-  
+
   // Edit Server
-  $(document).on('click', '.editbtn', function(){
+  $(document).on('click', '.editbtn', function() {
     let id = event.target.id;
     $.ajax({
       url: "/includes/serverinputs.php",
@@ -144,24 +187,24 @@ $(document).ready(function() {
       }
     });
   });
-  
+
   // Cancel button click
-  $(document).on('click', '#cancel_btn', function(){
+  $(document).on('click', '#cancel_btn', function() {
     serverinputs();
   });
-  
+
   // Delete Server
-  $(document).on('click', '.delbtn', function(){
+  $(document).on('click', '.delbtn', function() {
     let id = event.target.id;
     alert("DELETE " + id);
   });
-  
+
   // Start Server
-  $(document).on('click', '.startbtn', function(){
+  $(document).on('click', '.startbtn', function() {
     let id = event.target.id;
     $(".info").hide();
     $("#tab1div").show();
-    $("#startbox").html("Server "+id+" start begin.");
+    $("#startbox").html("Server " + id + " start begin.");
     $.ajax({
       type: "POST",
       error: function() {
@@ -176,7 +219,7 @@ $(document).ready(function() {
       }
     });
   });
-  
+
   // Show Server Controls
   function get_servers() {
     $.ajax({
@@ -194,13 +237,13 @@ $(document).ready(function() {
       }
     });
   }
-  
+
   // If settings page then get servers
-  if ( pageURL == (rooturl + "/modules/settings/index.php")) {
+  if (pageURL == (rooturl + "/modules/settings/index.php")) {
     get_servers();
     serverinputs();
   }
-  
+
   // Show Server Controls
   function server_controls() {
     $.ajax({
@@ -214,14 +257,14 @@ $(document).ready(function() {
         alert("Loading Controls Failed.");
       },
       success: function(data) {
-        
+
         $('#controls').html(data);
       }
     });
   }
 
   // Run server_controls function & refresh
-  if ( pageURL == (rooturl + "/index.php")) {
+  if (pageURL == (rooturl + "/index.php")) {
     server_controls();
     updateControlsInterval = setInterval(function() {
       server_controls();
@@ -230,7 +273,7 @@ $(document).ready(function() {
 
 
   // Add Server button
-  $(document).on('click', '#add_btn', function(){
+  $(document).on('click', '#add_btn', function() {
 
     var SessionName = document.getElementById('SessionName').value;
     var ServerX = document.getElementById('ServerX').value;
@@ -276,7 +319,7 @@ $(document).ready(function() {
   });
 
   // Update Server button
-  $(document).on('click', '#update_server_btn', function(){
+  $(document).on('click', '#update_server_btn', function() {
     var id = document.getElementById('id').value;
     var SessionName = document.getElementById('SessionName').value;
     var ServerX = document.getElementById('ServerX').value;
@@ -322,7 +365,7 @@ $(document).ready(function() {
     });
 
   });
-  
+
   // Show or Hide Tabs
   $('.tab').click(function() {
     // Hide any tabs previously opened
@@ -335,7 +378,7 @@ $(document).ready(function() {
 
 
   // Stop Server
-  $(document).on('click', '.stop_server_btn', function(){
+  $(document).on('click', '.stop_server_btn', function() {
     $.ajax({
       type: "POST",
       error: function() {
@@ -370,7 +413,7 @@ $(document).ready(function() {
   }
 
   // Update Server
-  $(document).on('click', '.update_svr_btn', function(){
+  $(document).on('click', '.update_svr_btn', function() {
     getUpdateLog();
     updateLogInterval = setInterval(function() {
       getUpdateLog();
@@ -383,7 +426,7 @@ $(document).ready(function() {
         clearInterval(updateLogInterval);
       },
       success: function(data) {
-        
+
         alert("Server Updated!");
         clearInterval(updateLogInterval);
       },

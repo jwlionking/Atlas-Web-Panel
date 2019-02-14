@@ -1,7 +1,7 @@
 <?php
   require $_SERVER["DOCUMENT_ROOT"].('/config/sql/config.php');
   $conn = new mysqli($servername, $username, $password, $dbname);
-  $sql = "SELECT id,QueryPort FROM atlas";
+  $sql = "SELECT id,QueryPort,AltSaveDirectoryName FROM atlas";
   $result = $conn->query($sql);
   $rowcount = $result->num_rows;
   $conn->close();
@@ -31,6 +31,7 @@
   while ($row = $result->fetch_assoc()){
     //echo $row['QueryPort'];
     ${"SQ_SERVER_PORT".$x} = $row['QueryPort'];
+    ${"AltSaveDirectoryName".$x} = $row['AltSaveDirectoryName'];
     $x++;
   }
 
@@ -89,15 +90,16 @@ for ($x = 1; $x <=$rowcount; $x++) {
   $output .= "    Map: ${"Map" . $x}<br>";
   $output .= "    Players Online: ${"Players" . $x}<br>";
   $output .= "    Max Players: ${"MaxPlayers" . $x}";
+  //$output .= "    AltSaveDirectoryName: ${"AltSaveDirectoryName" . $x}";
   $output .= "  </div>";
   //$output .= "  <hr>";
   $output .= "  <div class='w3-container w3-padding'>";
   $output .= "    <center>";
   $output .= "    <h4>EDIT CONFIGS</h4></center>";
   //$output .= "    <hr>";
-  $output .= "    <button class='w3-button w3-round w3-border w3-black'>Game.ini</button>";
-  $output .= "    <button class='w3-button w3-round w3-border w3-black'>GameUserSettings.ini</button>";
-  $output .= "    <button class='w3-button w3-round w3-border w3-black'>Engine.ini</button>";
+  $output .= "    <button id='${"AltSaveDirectoryName" . $x}' class='gameini_btn w3-button w3-round w3-border w3-black'>Game.ini</button>";
+  $output .= "    <button id='${"AltSaveDirectoryName" . $x}' class='gameus_btn w3-button w3-round w3-border w3-black'>GameUserSettings.ini</button>";
+  $output .= "    <button id='${"AltSaveDirectoryName" . $x}' class='engine_btn w3-button w3-round w3-border w3-black'>Engine.ini</button>";
   $output .= "    </center>";
   $output .= "  </div>";
   $output .= "</div>";
